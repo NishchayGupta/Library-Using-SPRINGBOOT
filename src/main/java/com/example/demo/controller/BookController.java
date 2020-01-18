@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.dao.Book;
-import com.example.demo.exception.BookNotFoundException;
+import com.example.demo.exception.LibraryNotFoundException;
 import com.example.demo.service.BookDAOService;
 
 @RestController
@@ -42,7 +42,7 @@ public class BookController {
 		Book book = service.findOneBook(id);
 		if(book == null)
 		{
-			throw new BookNotFoundException("id: " + id);
+			throw new LibraryNotFoundException("id: " + id);
 		}
 		//"all-books", SERVER_PATH + "/books" 
 		 Resource<Book> resource = new Resource<Book>(book);
@@ -73,7 +73,7 @@ public class BookController {
 		Book book = service.removeBook(id);
 		if(book == null)
 		{
-			throw new BookNotFoundException("id: " + id);
+			throw new LibraryNotFoundException("id: " + id);
 		}
 	}
 }

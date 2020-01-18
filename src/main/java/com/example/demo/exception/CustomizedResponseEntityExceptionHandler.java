@@ -25,8 +25,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionRes, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@ExceptionHandler(BookNotFoundException.class)
-	public final ResponseEntity<Object> handleBookNotFoundException(BookNotFoundException ex, WebRequest request) {
+	@ExceptionHandler(LibraryNotFoundException.class)
+	public final ResponseEntity<Object> handleBookNotFoundException(LibraryNotFoundException ex, WebRequest request) {
 		
 		ExceptionResponse exceptionRes = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity(exceptionRes, HttpStatus.NOT_FOUND);
